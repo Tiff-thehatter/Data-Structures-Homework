@@ -64,19 +64,20 @@ def question4(n, tower1, tower2, tower3):
 
 
     if n == 1:
-
-      '''  print(f"Disk 1 moved from {tower1} to {tower2}")
-        
-    question4(n-1,tower1,tower3,tower2)
-    print(f"Disk {n} moved from {tower1} to {tower2}")
-    question4(n-1,tower3,tower2,tower1)
-    '''
+        return [f"Disk 1 moved from {tower1} to {tower2}"]
 
 
-    question4(n - 1, tower1, tower3, tower2)
-    question4(n - 1, tower3, tower2, tower1)
-    return([f"Disk {n} moved from {tower1} to {tower2}",
-    f"Disk {n} moved from {tower1} to {tower2}"])
+    steps = []
+    steps += question4(n - 1, tower1, tower3, tower2)
+
+    # Move the nth disk from tower1 to tower2
+    steps.append(f"Disk {n} moved from {tower1} to {tower2}")
+
+    # Move n-1 disks from tower3 to tower2 using tower1 as auxiliary
+    steps += question4(n - 1, tower3, tower2, tower1)
+
+    return steps
+
 
 
 
