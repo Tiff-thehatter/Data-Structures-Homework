@@ -78,6 +78,20 @@ def question4(n, tower1, tower2, tower3):
 
     return steps
 
+#or
+
+    list = []
+
+    if n == 1:
+        list.append("Disk 1 moved from {tower1} to {tower2}")
+    else:
+        question4(n - 1, tower1, tower3, tower2)
+        list.append(f"Disk {n} moved from {tower1} to {tower2}")
+        question4(n -1, {tower3}, {tower2}, {tower1})
+
+    question4(n, tower1, tower2, tower3)    
+    return list
+
 
 
 
