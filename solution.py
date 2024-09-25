@@ -104,13 +104,14 @@ def question5(numbers, start, end, target):
         Return the index of the target if it exists, otherwise, return -1
     """
 
-    if start > end :
+    if start > end:
         return -1
-    mid = (start + end) / 2
-    if mid  < target:
-        question5(numbers, mid + 1, end, target)
-    elif mid > target:
-        question5(numbers, start, mid + 1, target)
+
+    mid = (start + end) // 2
+    if numbers[mid] < target:
+        return question5(numbers, mid + 1, end, target)
+    elif numbers[mid] > target:
+        return question5(numbers, start, mid - 1, target)
     return mid
 
 
