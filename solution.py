@@ -1,5 +1,10 @@
-import unittest
-from solution import *
+
+"""
+Group 36
+Tiffany Whitsett U90321785
+Micaela Arlo-Gil
+"""
+
 """
     Write your main code for each question in the specified functions
     as they will be used for unit testing. You can define other functions
@@ -49,8 +54,6 @@ def question3(matrix1, matrix2):
 
 
 
-
-
 def question4(n, tower1, tower2, tower3):
     """
         n: denotes number of disks
@@ -77,21 +80,6 @@ def question4(n, tower1, tower2, tower3):
     steps += question4(n - 1, tower3, tower2, tower1)
 
     return steps
-
-#or
-
-    list = []
-
-    if n == 1:
-        list.append("Disk 1 moved from {tower1} to {tower2}")
-    else:
-        question4(n - 1, tower1, tower3, tower2)
-        list.append(f"Disk {n} moved from {tower1} to {tower2}")
-        question4(n -1, {tower3}, {tower2}, {tower1})
-
-    question4(n, tower1, tower2, tower3)    
-    return list
-
 
 
 
@@ -120,7 +108,21 @@ def ec(nums1, nums2):
         You are given two lists of numbers.
         Return the intersection of those as a list of numbers
     """
-    return []
+    nums1.sort()
+    nums2.sort()
+    x,y = 0,0
+    intersect = []
+    while x < len(nums1) and y < len(nums2):
+        if nums1[x] == nums2[y]:
+            intersect.append(nums1[x])
+            x += 1
+            y += 1
+        elif nums1[x] < nums2[y]:
+            x += 1
+        else:
+            y += 1
+    return intersect
+
 
 matrix1 = [[22, 19, 49, 69, 71, 47, 93],
                [41, 23, 16, 74, 71, 67, -5],
@@ -129,109 +131,9 @@ matrix1 = [[22, 19, 49, 69, 71, 47, 93],
 matrix2= [[-9, 34, 56, 43, 29, 71, 31],
                [19, 76, 7, 21, 39, 24, 45],
                [94, -8, 88, 75, 92, 83, 55]]
-question3(matrix1,matrix2)
 
 
-#question5(numbers, start, end, target)
+#question4(3, 'A', 'B', 'C')
+#print(question5([-5, 4, 5, 8, 23, 24, 45, 55, 69, 72, 81, 91, 92, 96, 99], 0, 23 ,4))
+#print(ec([1,2, 2, 1], [2,2]))
 
-
-class TestClass(unittest.TestCase):
-    def test_1_q3(self):
-        m11 = [[22, 19, 49, 69, 71, 47, 93],
-               [41, 23, 16, 74, 71, 67, -5],
-               [28, 5, 70, -9, 66, 38, 49]]
-
-        m12 = [[-9, 34, 56, 43, 29, 71, 31],
-               [19, 76, 7, 21, 39, 24, 45],
-               [94, -8, 88, 75, 92, 83, 55]]
-
-        s1 = [[13, 53, 105, 112, 100, 118, 124],
-              [60, 99, 23, 95, 110, 91, 40],
-              [122, -3, 158, 66, 158, 121, 104]]
-
-        if question3(m11, m12) != s1:
-            print("Q3 Failed / Test 1")
-            return
-
-        m21 = [[36], [0], [-7]]
-        m22 = [[89], [83], [53]]
-        s2 = [[125], [83], [46]]
-
-        if question3(m21, m22) != s2:
-            print("Q3 Failed / Test 2")
-            return
-
-        m31 = [[-3, -8, 89, -1, 23],
-               [20, 80, 15, 89, 25],
-               [85, 35, 72, 78, 30],
-               [45, 28, 1, 10, -10],
-               [28, 34, 55, 19, 83],
-               [42, 48, 86, 57, -3],
-               [12, 76, 49, -5, 96]]
-
-
-        m32 = [[14, 17, 87, 29, 36],
-               [15, 59, 92, 33, 53],
-               [9, 25, 38, 43, 81],
-               [9, 3, 48, 15, 85],
-               [-9, 64, 84, 44, 69],
-               [21, 41, 83, 51, 48],
-               [84, 85, 36, 33, 49]]
-
-        s3 = [[11, 9, 176, 28, 59],
-              [35, 139, 107, 122, 78],
-              [94, 60, 110, 121, 111],
-              [54, 31, 49, 25, 75],
-              [19, 98, 139, 63, 152],
-              [63, 89, 169, 108, 45],
-              [96, 161, 85, 28, 145]]
-
-        if question3(m31, m32) != s3:
-            print("Q3 Failed / Test 3")
-            return
-
-        print("Q3 Passed")
-
-
-    def test_2_q4(self):
-        script = ['Disk 1 moved from A to B',
-                  'Disk 2 moved from A to C',
-                  'Disk 1 moved from B to C',
-                  'Disk 3 moved from A to B',
-                  'Disk 1 moved from C to A',
-                  'Disk 2 moved from C to B',
-                  'Disk 1 moved from A to B']
-
-        if question4(3, 'A', 'B', 'C') != script:
-            print("Q4 Failed")
-            return
-
-        print("Q4 Passed")
-
-
-    def test_3_q5(self):
-        testcases = [ ([-5, 4, 5, 8, 23, 24, 45, 55, 69, 72, 81, 91, 92, 96, 99], 23 ,4),
-                      ([-7, 9, 13, 26, 27, 48, 51, 52, 71, 74, 75, 83, 84, 91, 94], 91, 13),
-                      ([-10, -1, 2, 17, 22, 31, 35, 42, 45, 54, 57, 79, 82, 88, 96], 178, -1)]
-
-        for t in testcases:
-            if question5(t[0], 0, len(t[0]) - 1, t[1]) != t[2]:
-                print("Q5 Failed")
-                return
-        print("Q5 Passed")
-
-
-    def test_4_ec(self):
-        testcases = [([1,2, 2, 1], [2,2], [2,2]),
-                     ([9,4,9,8,4], [4,9,5], [4,9]),
-                     ([2], [0], [])]
-
-        for t in testcases:
-            if sorted(ec(t[0], t[1])) != sorted(t[2]):
-                print("EC Failed")
-                return
-        print("EC Passed")
-
-
-if __name__=='__main__':
-    unittest.main(verbosity=0)
