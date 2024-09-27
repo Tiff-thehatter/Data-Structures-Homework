@@ -2,7 +2,7 @@
 """
 Group 36
 Tiffany Whitsett U90321785
-Micaela Arlo-Gil
+Micaela Arleo-Gil U95656807
 """
 
 """
@@ -13,6 +13,25 @@ Micaela Arlo-Gil
 
     ** Do not change the name of the file to anything else.
 """
+
+# 1A. Linear (O(N)) because each for loop executes once.
+# 1B. Linearithmic (O(NlogN)) because (j*9) iterates exponentially and the nested for loop also supports this claim.
+# 1C. Quadratic (O(N^2)) because of the outer and inner loop.
+# 1D. Constant (O(1)) because it returns only one value based on the condition of the loop.
+# 1E. Logarithmic (O(log N)) because i is divided by 2 until it reaches 0.
+# 1F. Logarithmic (O(log N)) because j grows exponentially and the k value needs to drop to 1 with each iterations.
+# 1G. O(N * 2^N) because the outer loop runs n - 1 (O(N)) and m double each iteration O(2^N).
+# 1H. Exponential (O(N^3)) because the total number of operations will be 3 since the outer loop runs n times, the middle runs i times, and the innermost runs j times. 
+
+# 2A. O(N^3)
+# 2B. O(N^3)
+# 2C. O(N^2)
+# 2D. O(N)
+# 2E. O(N^4)
+# 2F. O(N^4)
+# 2G. O(NlogN)
+# 2H. O(N2^N)
+
 
 def question3(matrix1, matrix2):
 
@@ -47,13 +66,6 @@ def question3(matrix1, matrix2):
         return matrix0
 
 
-
-
-
-
-
-
-
 def question4(n, tower1, tower2, tower3):
     """
         n: denotes number of disks
@@ -80,8 +92,6 @@ def question4(n, tower1, tower2, tower3):
     steps += question4(n - 1, tower3, tower2, tower1)
 
     return steps
-
-
 
 
 def question5(numbers, start, end, target):
