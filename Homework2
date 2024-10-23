@@ -1,0 +1,36 @@
+"""
+    Write your main code for each question in the specified functions
+    as they will be used for unit testing. You can define other functions
+    to modularize your code but remember that the following functions are the
+    ones that are called by our tester.
+
+    ** Do not change the name of the file to anything else.
+"""
+
+def question1(nums):
+    """
+        Given an integer array, return true if any value appears at least twice in the array and false if every element is distinct.
+    """
+    repeat = True
+    while not 1 <= len(nums) <= 10 ** 5:
+        while -10 ** 9 <= nums[i] <= 10 ** 9:
+            break
+        return ("not within constrants")
+    for i in range(len(nums)-1):
+
+            nums.sort()
+            if nums[i] == nums[i+1]:
+                return repeat
+
+
+    return not repeat
+def question2(nums):
+    """
+    Given an integer array of numbers, return the minimum number of moves required to make all array elements equal.   In one move, you can increment or decrement an element of the array by 1.
+
+    Test cases are designed so that the  answer will fit in a 32-bit integer.
+    """
+    nums.sort()
+    median = nums[len(nums) // 2]
+    value = sum(abs(num - median) for num in nums)
+    return value
