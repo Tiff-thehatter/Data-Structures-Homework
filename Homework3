@@ -1,3 +1,7 @@
+Micaela Arleo-Gil (U95656807)
+Tiffany Whitsett (U)
+
+
 """
     Write your main code for each question in the specified functions
     as they will be used for unit testing. You can define other functions
@@ -24,6 +28,8 @@ def question1(nums):
 
 
     return not repeat
+
+
 def question2(nums):
     """
     Given an integer array of numbers, return the minimum number of moves required to make all array elements equal.   In one move, you can increment or decrement an element of the array by 1.
@@ -34,3 +40,26 @@ def question2(nums):
     median = nums[len(nums) // 2]
     value = sum(abs(num - median) for num in nums)
     return value
+
+
+
+
+def ec(peoples, limit):
+    """
+    You are given an array people where people[i] is the weight of the  person, and an infinite number of boats where each boat can carry a maximum weight of limit. Each boat carries at most two people at the same time, provided the sum of the weight of those people is at most limit. Return the minimum number of boats to carry all the people.
+    """
+
+    peoples.sort()
+
+    boats = 0
+    w_of_light = 0
+    w_of_heavy = len(peoples) - 1
+
+    while w_of_light <= w_of_heavy:
+        if peoples[w_of_light] + peoples[w_of_heavy] <= limit:
+            w_of_light += 1
+        
+        w_of_heavy -= 1
+        boats += 1
+
+    return boats
