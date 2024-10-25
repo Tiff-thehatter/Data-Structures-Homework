@@ -1,6 +1,8 @@
-# Group 36
-# Micaela Arleo-Gil (U95656807)
-# Tiffany Whitsett (U90321785)
+'''
+Group 36
+Micaela Arleo-Gil (U95656807)
+Tiffany Whitsett (U90321785)
+'''
 
 
 """
@@ -41,6 +43,8 @@ def question2(nums):
     median = nums[len(nums) // 2]
     value = sum(abs(num - median) for num in nums)
     return value
+
+
 
 
 
